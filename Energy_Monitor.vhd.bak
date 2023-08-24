@@ -1,0 +1,17 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity Energy_Monitor is port(
+	AGTB, AEQB, ALTB	:in	std_logic;
+	vacation_mode,MC_test_mode,window_open,door_open	: in std_logic;
+	vacation,window,blower,AC,at_temp,furnace				: out std_logic;
+	increase,decrease,run										: out std_logic;
+	
+);
+end Energy_Monitor;
+
+Monitor: process(AGTB, AEQB, ALTB,window_open,door_open,MC_test_mode) is
+
+begin
+
+	

@@ -1,0 +1,22 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity temp_mux is
+port (
+	desired_temp,vacation_temp								: in std_logic_vector(3 downto 0);	--the two hex inputs
+	vacation_mode									: in std_logic;						--the select bit
+	mux_temp										: out std_logic_vector(3 downto 0)  --the hex output
+);
+
+end temp_mux;
+
+architecture mux_logic of temp_mux is
+
+begin
+
+	-- for the multiplexing of two hex input busses
+	with vacation_mode select
+	mux_temp <= 	desired_temp when '0', --this will select to output one of the two inputs based on the select bit
+						vacation_temp when '1';
+				  
+end mux_logic;
